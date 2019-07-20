@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="102px" height="100px" viewBox="0 0 102 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Search-Archive" transform="translate(-389.000000, -393.000000)" fill="#FFFFFF">
+            <g id="Group" transform="translate(389.000000, 388.000000)">
+                <path d="M74.416676,65.3958607 L102.012193,92.991378 L89.991378,105.012193 L62.8290849,77.8499002 C56.3553517,82.3572735 48.4862968,85 40,85 C17.90861,85 0,67.09139 0,45 C0,22.90861 17.90861,5 40,5 C62.09139,5 80,22.90861 80,45 C80,52.4497432 77.9634344,59.423821 74.416676,65.3958607 Z M40,69 C53.8071187,69 65,57.8071187 65,44 C65,30.1928813 53.8071187,19 40,19 C26.1928813,19 15,30.1928813 15,44 C15,57.8071187 26.1928813,69 40,69 Z" id="Combined-Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>
