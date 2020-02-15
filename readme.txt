@@ -2,7 +2,7 @@
 Contributors: Anlino
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=anders%40andersnoren%2ese&lc=US&item_name=Free%20WordPress%20Themes%20from%20Anders%20Noren&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Requires at least: 4.5
-Tested up to: 5.2
+Tested up to: 5.3.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -50,6 +50,17 @@ Images (top left to bottom right):
 
 
 == Changelog ==
+
+Version 1.10 (2020-02-15)
+-------------------------
+- Fixed a layout issue with Masonry
+- Updated sub menus so they can be navigated with focus only
+- Added a clearing block to the CSS
+- Updated register sidebar args to include the ID of the widgets, and to make widget titles H2 elements
+- Changed screenshot.png to a JPG file, reducing file size by two thirds
+- Compressed the default fallback image
+- Updated translateable strings to not include special characters
+- Updated "Tested up to" to 5.3.2
 
 Version 1.09 (2019-07-17)
 -------------------------

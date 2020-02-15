@@ -683,7 +683,7 @@ miyazaki.loadMore = {
 					$result.imagesLoaded( function() {
 
 						// Append the results
-						$articleWrapper.append( $result ).masonry( 'appended', $result );
+						$articleWrapper.append( $result ).masonry( 'appended', $result ).masonry();
 
 						$( window ).triggerHandler( 'ajax-content-loaded' );
 						$( window ).triggerHandler( 'did-interval-scroll' );
@@ -704,6 +704,8 @@ miyazaki.loadMore = {
 							$pagination.removeClass( 'last-page' );
 							lastPage = false;
 						}
+
+						
 
 					} );
 
@@ -745,27 +747,44 @@ miyazaki.loadMore = {
 } // Load More
 
 
+
+
+/*	-----------------------------------------------------------------------------------------------
+	Focus Management
+--------------------------------------------------------------------------------------------------- */
+
+miyazaki.focusManagement = {
+
+	init: function() {
+
+		// Add and remove a class from dropdown menu items on focus
+		miyazaki.focusManagement.dropdownFocus();
+
+	},
+
+	// Add and remove a class from dropdown menu items on focus
+	dropdownFocus: function() {
+		$( '.main-menu a' ).on( 'blur focus', function( e ) {
+			$( this ).parents( 'li.menu-item-has-children' ).toggleClass( 'focus' );
+		} );
+	}
+
+} // chaplin.focusManagement
+
+
 // ======================================================================= Function calls
 $( document ).ready( function( ) {
 
 	miyazaki.intervalScroll.init();						// Interval scroll
-
 	miyazaki.toggles.init();							// Toggles
-
 	miyazaki.coverModals.init();						// Cover modal specifics
-
 	miyazaki.elementInView.init();						// Check for element in view
-
 	miyazaki.mobileMenu.init();							// Mobile menu
-
 	miyazaki.intrinsicRatioEmbeds.init();				// Resize embeds
-
 	miyazaki.masonry.init();							// Masonry grid
-
 	miyazaki.smoothScroll.init();						// Smooth scrolls to anchor links
-
 	miyazaki.loadMore.init();							// Load more posts
-
 	miyazaki.scrollLock.init();							// Handle locking of the scroll
+	miyazaki.focusManagement.init();					// Focus functionality
 
 } );

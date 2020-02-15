@@ -33,7 +33,7 @@
 					<p class="theme-credits">
 						<?php
 						/* Translators: $s = name of the theme developer */
-						printf( _x( 'Theme by %s', 'Translators: $s = name of the theme developer', 'miyazaki' ), '<a href="https://www.andersnoren.se">' . __( 'Anders Norén', 'miyazaki' ) . '</a>' ); ?>
+						printf( _x( 'Theme by %s', 'Translators: $s = name of the theme developer', 'miyazaki' ), '<a href="https://www.andersnoren.se">' . __( 'Anders Nor&eacute;n', 'miyazaki' ) . '</a>' ); ?>
 					</p><!-- .theme-credits -->
 
 				</div><!-- .footer-credits -->

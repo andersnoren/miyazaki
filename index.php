@@ -68,7 +68,7 @@
 
 		<?php elseif ( is_search() ) : ?>
 
-			<p class="no-search-results"><?php _e( "We couldn’t find any matching search results, but feel free to try again with different words.", "miyazaki" ); ?></p>
+			<p class="no-search-results"><?php _e( "We could not find any matching search results, but feel free to try again with different words.", "miyazaki" ); ?></p>
 
 		<?php endif; ?>
 

@@ -346,30 +346,30 @@ if ( ! function_exists( 'miyazaki_widget_areas' ) ) :
 			'name' 			=> __( 'Footer #1', 'miyazaki' ),
 			'id' 			=> 'footer-one',
 			'description' 	=> __( 'Widgets in this area will be shown in the first footer column.', 'miyazaki' ),
-			'before_title' 	=> '<h3 class="widget-title">',
-			'after_title' 	=> '</h3>',
-			'before_widget' => '<div class="widget %2$s"><div class="widget-content">',
-			'after_widget' 	=> '</div><div class="clear"></div></div>',
+			'before_title' 	=> '<h2 class="widget-title">',
+			'after_title' 	=> '</h2>',
+			'before_widget' => '<div id="%1$s" class="widget %2$s"><div class="widget-content">',
+			'after_widget' 	=> '</div></div>',
 		) );
 
 		register_sidebar( array(
 			'name' 			=> __( 'Footer #2', 'miyazaki' ),
 			'id' 			=> 'footer-two',
 			'description' 	=> __( 'Widgets in this area will be shown in the second footer column.', 'miyazaki' ),
-			'before_title' 	=> '<h3 class="widget-title">',
-			'after_title' 	=> '</h3>',
-			'before_widget' => '<div class="widget %2$s"><div class="widget-content">',
-			'after_widget' 	=> '</div><div class="clear"></div></div>',
+			'before_title' 	=> '<h2 class="widget-title">',
+			'after_title' 	=> '</h2>',
+			'before_widget' => '<div id="%1$s" class="widget %2$s"><div class="widget-content">',
+			'after_widget' 	=> '</div></div>',
 		) );
 
 		register_sidebar( array(
 			'name' 			=> __( 'Footer #3', 'miyazaki' ),
 			'id' 			=> 'footer-three',
 			'description' 	=> __( 'Widgets in this area will be shown in the third footer column.', 'miyazaki' ),
-			'before_title' 	=> '<h3 class="widget-title">',
-			'after_title' 	=> '</h3>',
-			'before_widget' => '<div class="widget %2$s"><div class="widget-content">',
-			'after_widget' 	=> '</div><div class="clear"></div></div>',
+			'before_title' 	=> '<h2 class="widget-title">',
+			'after_title' 	=> '</h2>',
+			'before_widget' => '<div id="%1$s" class="widget %2$s"><div class="widget-content">',
+			'after_widget' 	=> '</div></div>',
 		) );
 
 	}
