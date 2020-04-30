@@ -8,31 +8,42 @@
 
 @font-face {
 	font-family: 'Charis SIL';
-	src: url( ./assets/fonts/CharisSIL-R.woff );
+	src: url( ../fonts/CharisSIL-R.woff );
 }
 
 @font-face {
 	font-family: 'Charis SIL';
 	font-style: italic;
-	src: url( ./assets/fonts/CharisSIL-I.woff );
+	src: url( ../fonts/CharisSIL-I.woff );
 }
 
 @font-face {
 	font-family: 'Charis SIL';
 	font-weight: bold;
-	src: url( ./assets/fonts/CharisSIL-B.woff );
+	src: url( ../fonts/CharisSIL-B.woff );
 }
 
 @font-face {
 	font-family: 'Charis SIL';
 	font-weight: bold;
 	font-style: italic;
-	src: url( ./assets/fonts/CharisSIL-BI.woff );
+	src: url( ../fonts/CharisSIL-BI.woff );
 }
 
 
 /* Structure ---------------------------------------------- */
 
+.wp-block {
+	max-width: 520px;
+}
+
+.editor-styles-wrapper *[data-align="wide"] .wp-block-group .wp-block {
+	max-width: calc( 100% - 40px );
+}
+
+.editor-styles-wrapper *[data-align="full"] .wp-block-group .wp-block {
+	max-width: 100%;
+}
 
 .block-editor__container .editor-styles-wrapper {
 	font-size: 16px;
@@ -42,6 +53,7 @@
 	color: #000;
 	font-family: 'Charis SIL', Georgia, serif;
 	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 .editor-styles-wrapper > * {
@@ -58,8 +70,8 @@
 	max-width: 630px;
 }
 
-.editor-default-block-appender textarea.editor-default-block-appender__content {
-	font-family: 'Charis SIL', Georgia, serif;
+.block-editor-default-block-appender textarea.block-editor-default-block-appender__content {
+	font-family: inherit;
 }
 
 .editor-block-list__layout .editor-block-list__block[data-align=right] .editor-block-list__block-edit,
@@ -67,17 +79,17 @@
 	max-width: 50%;
 }
 
-.editor-block-list__block[data-align="wide"],
-.editor-block-list__block[data-align="full"] {
-	margin-bottom: 50px;
-	margin-top: 50px;
+.editor-styles-wrapper *[data-align="wide"],
+.editor-styles-wrapper *[data-align="full"] {
+	margin-bottom: 60px;
+	margin-top: 60px;
 }
 
-.editor-block-list__block[data-align="wide"] {
+.editor-styles-wrapper *[data-align="wide"] {
     max-width: 1710px;
 }
 
-.editor-block-list__block[data-align="full"] {
+.editor-styles-wrapper *[data-align="full"] {
     max-width: none;
 }
 
@@ -98,13 +110,19 @@
 	line-height: .85;
 }
 
-.editor-styles-wrapper a {
+.editor-styles-wrapper .editor-block-list__layout a,
+.editor-styles-wrapper .block-editor-block-list__layout a {
 	color: #F9423A;
 	text-decoration: underline;
 }
 
 .editor-styles-wrapper p {
 	font-size: inherit;
+	line-height: 1.5;
+}
+
+.editor-styles-wrapper .wp-block p {
+	line-height: 1.5;
 }
 
 .editor-styles-wrapper .editor-block-list__block, 
@@ -112,12 +130,12 @@
 	font-size: inherit;
 }
 
-.editor-styles-wrapper .wp-block-heading h1,
-.editor-styles-wrapper .wp-block-heading h2,
-.editor-styles-wrapper .wp-block-heading h3,
-.editor-styles-wrapper .wp-block-heading h4,
-.editor-styles-wrapper .wp-block-heading h5,
-.editor-styles-wrapper .wp-block-heading h6 {
+.editor-styles-wrapper .wp-block h1,
+.editor-styles-wrapper .wp-block h2,
+.editor-styles-wrapper .wp-block h3,
+.editor-styles-wrapper .wp-block h4,
+.editor-styles-wrapper .wp-block h5,
+.editor-styles-wrapper .wp-block h6 {
 	color: #000;
 	font-family: Teko, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, sans-serif;
 	font-weight: 600;
@@ -126,12 +144,12 @@
 	margin: .75em 0 .4em;
 }
 
-.editor-styles-wrapper .wp-block-heading h1 { font-size: 48px; }
-.editor-styles-wrapper .wp-block-heading h2 { font-size: 40px; }
-.editor-styles-wrapper .wp-block-heading h3 { font-size: 32px; }
-.editor-styles-wrapper .wp-block-heading h4 { font-size: 24px; }
-.editor-styles-wrapper .wp-block-heading h5 { font-size: 20px; }
-.editor-styles-wrapper .wp-block-heading h6 { font-size: 18px; }
+.editor-styles-wrapper .wp-block h1 { font-size: 48px; }
+.editor-styles-wrapper .wp-block h2 { font-size: 40px; }
+.editor-styles-wrapper .wp-block h3 { font-size: 32px; }
+.editor-styles-wrapper .wp-block h4 { font-size: 24px; }
+.editor-styles-wrapper .wp-block h5 { font-size: 20px; }
+.editor-styles-wrapper .wp-block h6 { font-size: 18px; }
 
 p.has-drop-cap:not(:focus):first-letter {
 	font-family: Teko, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
@@ -448,7 +466,7 @@ pre.wp-block-verse {
 
 /* Block: Button ------------------------------------------- */
 
-.wp-block-button .editor-rich-text {
+.wp-block-button {
 	font-family: Teko, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, sans-serif;
 }
 
@@ -493,12 +511,12 @@ pre.wp-block-verse {
 		font-size: 96px;
 	}
 
-	.editor-styles-wrapper .wp-block-heading h1 { font-size: 96px; }
-	.editor-styles-wrapper .wp-block-heading h2 { font-size: 82px; }
-	.editor-styles-wrapper .wp-block-heading h3 { font-size: 64px; }
-	.editor-styles-wrapper .wp-block-heading h4 { font-size: 48px; }
-	.editor-styles-wrapper .wp-block-heading h5 { font-size: 32px; }
-	.editor-styles-wrapper .wp-block-heading h6 { font-size: 24px; }
+	.editor-styles-wrapper .wp-block h1 { font-size: 96px; }
+	.editor-styles-wrapper .wp-block h2 { font-size: 82px; }
+	.editor-styles-wrapper .wp-block h3 { font-size: 64px; }
+	.editor-styles-wrapper .wp-block h4 { font-size: 48px; }
+	.editor-styles-wrapper .wp-block h5 { font-size: 32px; }
+	.editor-styles-wrapper .wp-block h6 { font-size: 24px; }
 
 	.editor-writing-flow figcaption {
 		font-size: 16px;
@@ -520,7 +538,7 @@ pre.wp-block-verse {
 	}
 
 	.editor-post-title__block .editor-post-title__input,
-	.editor-styles-wrapper .wp-block-heading h1 {
+	.editor-styles-wrapper .wp-block h1 {
 		font-size: 124px;
 	}
 

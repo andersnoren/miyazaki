@@ -6,17 +6,23 @@
 
 					<div class="footer-widgets-wrapper">
 
-						<div class="footer-widgets">
-							<?php dynamic_sidebar( 'footer-one' ); ?>
-						</div>
+						<?php if ( is_active_sidebar( 'footer-one' ) ) : ?>
+							<div class="footer-widgets-one footer-widgets">
+								<?php dynamic_sidebar( 'footer-one' ); ?>
+							</div><!-- .footer-widgets-one -->
+						<?php endif; ?>
 
-						<div class="footer-widgets">
-							<?php dynamic_sidebar( 'footer-two' ); ?>
-						</div>
+						<?php if ( is_active_sidebar( 'footer-two' ) ) : ?>
+							<div class="footer-widgets-two footer-widgets">
+								<?php dynamic_sidebar( 'footer-two' ); ?>
+							</div><!-- .footer-widgets-two -->
+						<?php endif; ?>
 
-						<div class="footer-widgets">
-							<?php dynamic_sidebar( 'footer-three' ); ?>
-						</div>
+						<?php if ( is_active_sidebar( 'footer-three' ) ) : ?>
+							<div class="footer-widgets-three footer-widgets">
+								<?php dynamic_sidebar( 'footer-three' ); ?>
+							</div><!-- .footer-widgets-three -->
+						<?php endif; ?>
 
 					</div><!-- .footer-widgets-wrapper -->
 

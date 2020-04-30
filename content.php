@@ -97,12 +97,10 @@
 			endif;
 
 			// If comments are open, or there are at least one comment
-			if ( ( get_post_type() == 'post' || comments_open() || get_comments_number() ) && ! post_password_required() ) : ?>
+			if ( ( comments_open() || get_comments_number() ) && ! post_password_required() ) : ?>
 
 				<div class="comments-wrapper">
-
 					<?php comments_template(); ?>
-
 				</div><!-- .comments-wrapper -->
 
 			<?php endif; ?>

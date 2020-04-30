@@ -2,7 +2,7 @@
 
 	Theme Name: Miyazaki
     Text Domain: miyazaki
-	Version: 1.10
+	Version: 2.0.0
 	Description: Miyazaki is a stylish, contrast heavy WordPress theme for blogs, portfolios and magazines. It features a masonry grid on the archive pages, a striking design, Block Editor/Gutenberg support, infinite scroll loading that can be set to load more posts on button click or when the visitor reaches the bottom of the page, threee widget areas in the footer, settings for what post meta to display on archive pages and on single posts, custom logo support, a search overlay that can be accessed from any page, and much more. Demo: http://andersnoren.se/themes/miyazaki/
 	Tags: three-columns, grid-layout, custom-background, custom-logo, editor-style, featured-images, sticky-post, theme-options, threaded-comments, translation-ready, blog, photography, portfolio, footer-widgets, block-styles, wide-blocks
 	Author: Anders Norén
@@ -19,21 +19,25 @@
 	0.	CSS Reset
 	1.	Document Setup
 	2.  Structure
-	3.	Site Header
-	4.	Archive
-	5.	Singular
-	6.  Entry Content
-	7.	Comments
-	8.	Page Templates
-	9.	Site Pagination
-	10.	Site Footer
-	11. Media Queries
+	3.	Element Base
+	4.	Helper Classes
+	5.	Site Header
+	6.  Post: Archive
+	7.	Post: Single
+	8.	Comments
+	9.	Entry Content
+	10.	Blocks
+	11. Site Pagination
+	12. 404 Page
+	13. Site Footer
+	14. Widgets
+	15. Media Queries
 
 ----------------------------------------------------------------------------------- */
 
 
 /* -------------------------------------------------------------------------------- */
-/*	X. CSS Reset
+/*	0. CSS Reset
 /* -------------------------------------------------------------------------------- */
 
 
@@ -108,7 +112,7 @@ input[type="search"]::-webkit-search-results-decoration {
 	text-decoration: none;
 	top: .5rem;
 	width: auto;
-	z-index: 100000; /* Above WP toolbar. */
+	z-index: 100000;
 }
 
 /* Skip Link --------------------------------- */
@@ -127,7 +131,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 
 /* -------------------------------------------------------------------------------- */
-/*	X. Document Setup
+/*	1. Document Setup
 /* -------------------------------------------------------------------------------- */
 
 
@@ -152,13 +156,14 @@ body * {
         -moz-box-sizing: border-box; 
 	box-sizing: border-box; 
 	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 	word-break: break-word;
 }
 
 *:first-child { margin-top: 0; }
 *:last-child { margin-bottom: 0; }
 
-body a {
+a {
 	color: inherit;
 	text-decoration: underline;
 }
@@ -172,9 +177,7 @@ body a {
 *:-ms-input-placeholder { color: #767676; }
 *::-moz-placeholder { color: #767676; }
 
-
-/* Fonts ----------------------------- */
-
+/* Fonts ------------------------------------- */
 
 @font-face {
 	font-family: 'Charis SIL';
@@ -202,7 +205,7 @@ body a {
 
 
 /* -------------------------------------------------------------------------------- */
-/*	X.	Structure
+/*	2.	Structure
 /* -------------------------------------------------------------------------------- */
 
 
@@ -214,7 +217,7 @@ body a {
 
 
 /* -------------------------------------------------------------------------------- */
-/*	X.	Element Base
+/*	3.	Element Base
 /* -------------------------------------------------------------------------------- */
 
 
@@ -274,9 +277,7 @@ address {
 	margin: 0 0 2rem 0;
 }
 
-
 /* Separators ------------------------------------- */
-
 
 hr {
 	border: none;
@@ -284,9 +285,7 @@ hr {
 	margin: 2em auto;
 }
 
-
 /* Lists ------------------------------------- */
-
 
 ul,
 ol {
@@ -343,9 +342,7 @@ dd {
 	line-height: 1.5;
 }
 
-
 /* Quotes ------------------------------------ */
-
 
 blockquote {
 	border-left: .2rem solid #000;
@@ -370,9 +367,7 @@ blockquote cite {
 	margin-top: 2rem;
 }
 
-
 /* Code -------------------------------------- */
-
 
 pre {
 	overflow: auto;
@@ -397,7 +392,6 @@ pre {
 	line-height: 1.5;
 	padding: 1em;
 }
-
 
 /* Media ------------------------------------- */
 
@@ -508,7 +502,6 @@ figcaption a,
 	display: inline;
 }
 
-
 /* GALLERIES */
 
 .gallery {
@@ -546,8 +539,7 @@ figcaption a,
 	width: 100%;
 }
 
-
-/* Fieldset ------------------------------------ */
+/* Fieldset ---------------------------------- */
 
 fieldset {
 	border: .2rem solid #000;
@@ -560,7 +552,6 @@ fieldset legend {
 	font-weight: 600;
 	padding: 0 1rem;
 }
-
 
 /* Inputs ------------------------------------ */
 
@@ -718,7 +709,6 @@ input[type="submit"]:disabled:hover {
 	opacity: 1;
 }
 
-
 /* Tables ------------------------------------ */
 
 table {
@@ -761,8 +751,7 @@ th {
 	text-transform: uppercase;
 }
 
-
-/* Transitions ------------------------------------ */
+/* Transitions ------------------------------- */
 
 a {
 	transition: color .15s linear, background-color .15s linear, opacity .15s linear;
@@ -770,7 +759,7 @@ a {
 
 
 /* -------------------------------------------------------------------------------- */
-/*	X.	Helper Classes
+/*	4.	Helper Classes
 /* -------------------------------------------------------------------------------- */
 
 
@@ -797,7 +786,6 @@ button.toggle {
 		-ms-user-select: none;
 	user-select: none;
 }
-
 
 /* Color Classes ----------------------------- */
 
@@ -827,8 +815,7 @@ button.toggle {
 
 .bg-color-white { background-color: #fff; }
 
-
-/* Typography Classes ----------------------------- */
+/* Typography Classes ------------------------ */
 
 .lining-numerals {
 	font-feature-settings: "lnum";
@@ -858,9 +845,7 @@ button.toggle {
 	user-select: none;
 }
 
-
-/* Arrow With Title ----------------------------- */
-
+/* Arrow With Title -------------------------- */
 
 .title-with-arrow {
 	align-items: baseline;
@@ -873,8 +858,7 @@ button.toggle {
 	width: .48em; /* 3/4 of height */
 }
 
-
-/* Post Meta ----------------------------- */
+/* Post Meta --------------------------------- */
 
 .post-meta {
 	display: flex;
@@ -898,6 +882,11 @@ button.toggle {
 	color: #F9423A;
 	display: inline-block;
 	text-decoration: none;
+	transition: border-color .1s linear;
+}
+
+.post-meta a:hover {
+	border-bottom-color: transparent;
 }
 
 /* STACK MOBILE */
@@ -917,8 +906,7 @@ button.toggle {
 	margin: .5rem 0 0 1.2rem;
 }
 
-
-/* Cover Modals ------------------------------- */
+/* Cover Modals ------------------------------ */
 
 .cover-modal {
 	background: #000;
@@ -941,7 +929,7 @@ button.toggle {
 	transition: opacity .25s linear;
 }
 
-/* Loading Animation ------------------------------- */
+/* Loading Animation ------------------------- */
 
 .loader {
 	animation: spin 1.4s linear infinite;
@@ -958,8 +946,7 @@ button.toggle {
 	width: 3rem;
 }
 
-
-/* Animations ------------------------------- */
+/* Animations -------------------------------- */
 
 @keyframes spin {
     0% { 	transform: rotate( 0deg ); }
@@ -978,8 +965,7 @@ button.toggle {
 	100% { 	transform: scale( 1.0 ); }
 }
 
-
-/* Spotted Animations ------------------------------- */
+/* Spotted Animations ------------------------ */
 
 /* PULL */
 
@@ -1008,7 +994,7 @@ button.toggle {
 
 
 /* -------------------------------------------------------------------------------- */
-/*	X.	Site Header
+/*	5.	Site Header
 /* -------------------------------------------------------------------------------- */
 
 
@@ -1059,8 +1045,7 @@ button.toggle {
 	padding: 0;
 }
 
-
-/* Shared Header Styles ------------------------------- */
+/* Shared Header Styles ---------------------- */
 
 .site-title a,
 .header-menu a,
@@ -1081,8 +1066,7 @@ button.toggle {
 	color: #F9423A;
 }
 
-
-/* Navigation Toggle ------------------------------- */
+/* Navigation Toggle ------------------------- */
 
 .nav-toggle {
 	align-items: baseline;
@@ -1149,8 +1133,7 @@ button.toggle {
 	transform: rotate( -45deg );
 }
 
-
-/* Home Header ----------------------------- */
+/* Home Header ------------------------------- */
 
 .has-front-header #site-header .section-inner {
 	flex-direction: row-reverse;
@@ -1180,9 +1163,7 @@ button.toggle {
 	white-space: normal;
 }
 
-
-/* Mobile Menu ----------------------------- */
-
+/* Mobile Menu ------------------------------- */
 
 .mobile-menu-wrapper {
 	display: flex;
@@ -1244,8 +1225,7 @@ ul.mobile-menu ul {
 	position: static;
 }
 
-
-/* Primary Menu ----------------------------- */
+/* Primary Menu ------------------------------ */
 
 ul.main-menu {
 	margin: -1rem 0 0 -2.5rem;
@@ -1388,8 +1368,7 @@ ul.main-menu {
 	top: 2.3rem;
 }
 
-
-/* Mobile Search Overlay ------------------------------- */
+/* Mobile Search Overlay --------------------- */
 
 .mobile-menu-wrapper .search-form {
 	align-items: center;
@@ -1407,8 +1386,7 @@ ul.main-menu {
 	font-weight: 600;
 }
 
-
-/* Search Overlay ------------------------------- */
+/* Search Overlay ---------------------------- */
 
 .search-overlay,
 .search-overlay-form-wrapper,
@@ -1464,8 +1442,7 @@ ul.main-menu {
 	display: none;
 }
 
-
-/* Showing Modal Header ----------------------------- */
+/* Showing Modal Header ---------------------- */
 
 body.showing-modal #site-header {
 	background: #000;
@@ -1494,7 +1471,7 @@ body.showing-modal .main-menu ul a:hover {
 
 
 /* -------------------------------------------------------------------------------- */
-/*	X.	Post: Archive
+/*	6.	Post: Archive
 /* -------------------------------------------------------------------------------- */
 
 
@@ -1508,7 +1485,7 @@ body.showing-modal .main-menu ul a:hover {
 }
 
 
-/* Archive Header ----------------------------- */
+/* Archive Header ---------------------------- */
 
 .archive-header {
 	margin: 4rem 0 3rem;
@@ -1541,13 +1518,13 @@ body.showing-modal .main-menu ul a:hover {
 }
 
 
-/* No Search Results ----------------------------- */
+/* No Search Results ------------------------- */
 
 .no-search-results {
 	font-family: 'Charis SIL', Georgia, serif;
 }
 
-/* Preview ----------------------------- */
+/* Preview ----------------------------------- */
 
 .grid-sizer,
 .preview {
@@ -1609,7 +1586,7 @@ body.showing-modal .main-menu ul a:hover {
 
 
 /* -------------------------------------------------------------------------------- */
-/*	X.	Post: Single
+/*	7.	Post: Single
 /* -------------------------------------------------------------------------------- */
 
 
@@ -1658,15 +1635,13 @@ body.showing-modal .main-menu ul a:hover {
 	margin-top: 4rem;
 }
 
-
-/* Post Inner ----------------------------- */
+/* Post Inner -------------------------------- */
 
 .post-inner {
 	max-width: 60rem;
 }
 
-
-/* Single Pagination ----------------------------- */
+/* Single Pagination ------------------------- */
 
 .pagination-single {
 	margin-top: 6rem;
@@ -1710,7 +1685,6 @@ body.showing-modal .main-menu ul a:hover {
 	text-decoration: underline;
 }
 
-
 /* Related Posts ----------------------------- */
 
 .related-posts {
@@ -1724,11 +1698,11 @@ body.showing-modal .main-menu ul a:hover {
 
 
 /* -------------------------------------------------------------------------------- */
-/*	X.	Comments
+/*	8.	Comments
 /* -------------------------------------------------------------------------------- */
 
 
-/* Comment Headers ----------------------------- */
+/* Comment Headers --------------------------- */
 
 .comments-wrapper {
 	margin-top: 6rem;
@@ -1758,8 +1732,7 @@ body.showing-modal .main-menu ul a:hover {
 	text-decoration: underline;
 }
 
-
-/* Comment Item ----------------------------- */
+/* Comment Item ------------------------------ */
 
 /* COMMENT HEADER */
 
@@ -1896,7 +1869,6 @@ body.showing-modal .main-menu ul a:hover {
 .comment-content h5 { font-size: 1.3em; }
 .comment-content h6 { font-size: 1em; }
 
-
 .bypostauthor .by-post-author-wrapper {
 	color: #767676;
 	font-size: 1.6rem;
@@ -1906,18 +1878,14 @@ body.showing-modal .main-menu ul a:hover {
 	text-transform: uppercase;
 }
 
-
-/* Pingbacks & Trackbacks ------------------------- */
-
+/* Pingbacks & Trackbacks -------------------- */
 
 .pingback .comment-meta,
 .trackback .comment-meta {
 	padding-left: 0;
 }
 
-
-/* Comments Pagination ---------------------------- */
-
+/* Comments Pagination ----------------------- */
 
 .comments-pagination {
 	border-top: .1rem solid #ddd;
@@ -1953,8 +1921,7 @@ body.showing-modal .main-menu ul a:hover {
 .comments-pagination .prev { left: 0; }
 .comments-pagination .next { right: 0; }
 
-
-/* Comment Respond ---------------------------- */
+/* Comment Respond --------------------------- */
 
 .comment-respond:not(:first-child) {
 	padding-top: 6rem;
@@ -2014,7 +1981,6 @@ body.showing-modal .main-menu ul a:hover {
 	margin-left: auto;
 }
 
-
 /* Reply Respond ---------------------------- */
 
 .comments .comment-respond {
@@ -2023,7 +1989,7 @@ body.showing-modal .main-menu ul a:hover {
 
 
 /* -------------------------------------------------------------------------------- */
-/*	X.	Entry Content
+/*	9.	Entry Content
 /* -------------------------------------------------------------------------------- */
 
 
@@ -2035,7 +2001,6 @@ body.showing-modal .main-menu ul a:hover {
 
 .entry-content a {
 	color: #F9423A;
-	text-decoration: underline;
 }
 
 .entry-content ul ul,
@@ -2045,47 +2010,7 @@ body.showing-modal .main-menu ul a:hover {
 	margin-top: 1rem;
 }
 
-/* Gutenberg Accent Colors --------------------------------------- */
-
-.entry-content .has-background { background-color: #000; }
-
-.entry-content .has-black-color { color: #000; }
-.entry-content .has-black-background-color { background-color: #000; }
-
-.entry-content .has-darkest-gray-color { color: #333; }
-.entry-content .has-darkest-gray-background-color { background-color: #333; }
-
-.entry-content .has-darker-gray-color { color: #666; }
-.entry-content .has-darker-gray-background-color { background-color: #666; }
-
-.entry-content .has-gray-color { color: #767676; }
-.entry-content .has-gray-background-color { background-color: #767676; }
-
-.entry-content .has-light-gray-color { color: #ddd; }
-.entry-content .has-light-gray-background-color { background-color: #ddd; }
-
-.entry-content .has-lightest-gray-color { color: #f1f1f1; }
-.entry-content .has-lightest-gray-background-color { background-color: #f1f1f1; }
-
-.entry-content .has-white-color { color: #fff; }
-.entry-content .has-white-background-color { background-color: #fff; }
-
-
-/* Gutenberg Font Sizes --------------------------------------- */
-
-.entry-content .has-small-font-size { font-size: .842em; }
-.entry-content .has-regular-font-size { font-size: 1em; }
-
-.entry-content .has-large-font-size,
-.entry-content .has-larger-font-size {
-	line-height: 1.4;
-}
-
-.entry-content .has-large-font-size { font-size: 1.25em; }
-.entry-content .has-larger-font-size { font-size: 1.5em; }
-
-
-/* Typography --------------------------------------- */
+/* Typography -------------------------------- */
 
 .entry-content h1,
 .entry-content h2,
@@ -2124,9 +2049,219 @@ body.showing-modal .main-menu ul a:hover {
 	color: inherit;
 }
 
+/* Page Break -------------------------------- */
 
-/* Entry Content Quotes ---------------------------- */
+.post-nav-links {
+	background: #ddd;
+	border-radius: .4rem;
+	color: #666;
+	font-weight: 600;
+	padding: 1.5rem 2rem;
+}
 
+
+/* -------------------------------------------------------------------------------- */
+/*	10.	Blocks
+/* -------------------------------------------------------------------------------- */
+
+
+/* Block Editor Accent Colors ---------------- */
+
+:root .has-background { background-color: #000; }
+
+:root .has-black-color { color: #000; }
+:root .has-black-background-color { background-color: #000; }
+
+:root .has-darkest-gray-color { color: #333; }
+:root .has-darkest-gray-background-color { background-color: #333; }
+
+:root .has-darker-gray-color { color: #666; }
+:root .has-darker-gray-background-color { background-color: #666; }
+
+:root .has-gray-color { color: #767676; }
+:root .has-gray-background-color { background-color: #767676; }
+
+:root .has-light-gray-color { color: #ddd; }
+:root .has-light-gray-background-color { background-color: #ddd; }
+
+:root .has-lightest-gray-color { color: #f1f1f1; }
+:root .has-lightest-gray-background-color { background-color: #f1f1f1; }
+
+:root .has-white-color { color: #fff; }
+:root .has-white-background-color { background-color: #fff; }
+
+/* Block Editor Font Sizes ------------------- */
+
+:root .has-small-font-size { font-size: .842em; }
+:root .has-regular-font-size { font-size: 1em; }
+
+:root .has-large-font-size,
+:root .has-larger-font-size {
+	line-height: 1.4;
+}
+
+:root .has-large-font-size { font-size: 1.25em; }
+:root .has-larger-font-size { font-size: 1.5em; }
+
+/* Block: Base Margins ----------------------- */
+
+:root *[class*="_inner-container"] > *:first-child {
+	margin-top: 0;
+}
+
+:root *[class*="_inner-container"] > *:last-child {
+	margin-bottom: 0;
+}
+
+.wp-block-archives,
+.wp-block-button,
+.wp-block-buttons,
+.wp-block-categories,
+.wp-block-code,
+.wp-block-columns,
+.wp-block-cover,
+.wp-block-cover-image,
+.wp-block-embed,
+.wp-block-gallery,
+.wp-block-group,
+.wp-block-image,
+.wp-block-latest-comments,
+.wp-block-latest-posts,
+.wp-block-media-text,
+.wp-block-preformatted,
+.wp-block-pullquote,
+.wp-block-social,
+.wp-block-quote,
+.wp-block-quote.is-large,
+.wp-block-quote.is-style-large,
+.wp-block-verse,
+.wp-block-video {
+	margin-bottom: 3rem;
+	margin-top: 3rem;
+}
+
+/* Block: Shared Nesting Alignment Resets ---- */
+
+[class*="__inner-container"] .wp-block-group:not(.alignfull):not(.alignwide):not(.alignleft):not(.alignright),
+[class*="__inner-container"] .wp-block-cover:not(.alignfull):not(.alignwide):not(.alignleft):not(.alignright) {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 52rem;
+}
+
+.alignfull > [class*="__inner-container"] > .wp-block-group.alignwide,
+.alignfull > [class*="__inner-container"] > .wp-block-group:not(.alignfull):not(.alignwide):not(.alignleft):not(.alignright),
+.alignfull > [class*="__inner-container"] > .wp-block-cover.alignwide,
+.alignfull > [class*="__inner-container"] > .wp-block-cover:not(.alignfull):not(.alignwide):not(.alignleft):not(.alignright) {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.alignfull > [class*="__inner-container"] > .wp-block-group:not(.alignfull):not(.alignwide):not(.alignleft):not(.alignright),
+.alignfull > [class*="__inner-container"] > .wp-block-cover:not(.alignfull):not(.alignwide):not(.alignleft):not(.alignright) {
+	margin-left: 0;
+}
+
+/* Block: Audio ------------------------------ */
+
+.wp-block-audio audio {
+	width: 100%;
+}
+
+/* Block: Button ----------------------------- */
+
+.entry-content .faux-button,
+.entry-content .wp-block-file__button,
+.entry-content .wp-block-button__link {
+	border-radius: 0;
+	color: #fff;
+	font-family: Teko, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, sans-serif;
+	font-size: 2.4rem;
+	font-weight: 500;
+	line-height: 1.2;
+	padding: 1.4rem 2.5rem 1.2rem;
+	text-decoration: none;
+}
+
+.wp-block-button__link {
+	background-color: #000;
+}
+
+.entry-content .wp-block-file__button:hover,
+.entry-content .wp-block-button__link:hover {
+	background-color: #F9423A;
+}
+
+/* BUTTON STYLE: OUTLINE */
+
+.wp-block-button.is-style-outline .wp-block-button__link {
+	border: .3rem solid #000;
+	color: #000;
+	padding: 1.1rem 2.2rem .9rem;
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link:hover {
+	background: #000;
+	color: #fff;
+}
+
+/* Block: Column ----------------------------- */
+
+.wp-block-column {
+	padding: 0 .5rem;
+}
+
+/* Block: Cover Image ------------------------ */
+
+.wp-block-cover {
+	min-height: 75vh;
+}
+
+.wp-block-cover .wp-block-cover-text {
+	font-family: Teko, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, sans-serif;
+	font-weight: 500;
+	padding-left: 2.8rem;
+	padding-right: 2.8rem;
+}
+
+/* Block: File ------------------------------- */
+
+.entry-content .wp-block-file {
+	align-items: center;
+	background: #ddd;
+	display: flex;
+	font-family: Teko, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, sans-serif;
+	justify-content: space-between;
+	margin: 3rem 0;
+	padding: 1.5rem 2rem;
+}
+
+.entry-content .wp-block-file a:not(.wp-block-file__button) {
+	color: inherit;
+	font-size: 2.4rem;
+	font-weight: 600;
+	margin-top: .3rem;
+	text-decoration: none;
+}
+
+.entry-content .wp-block-file__button {
+	background: #000;
+	flex-shrink: 0;
+}
+
+/* Block: Gallery ---------------------------- */
+
+.wp-block-gallery .blocks-gallery-image figcaption, 
+.wp-block-gallery .blocks-gallery-item figcaption {
+	margin: 0;
+	padding-bottom: 1rem;
+}
+
+.wp-block-gallery .blocks-gallery-grid {
+	margin: 0;
+}
+
+/* Block: Pull Quote ------------------------- */
 
 .entry-content .wp-block-pullquote {
 	border: none;
@@ -2169,46 +2304,7 @@ body.showing-modal .main-menu ul a:hover {
 	margin-top: 2rem;
 }
 
-/* Block: Column --------------------------------------- */
-
-.wp-block-column {
-	padding: 0 .5rem;
-}
-
-
-/* Block: Button --------------------------------------- */
-
-.entry-content .wp-block-file__button,
-.entry-content .wp-block-button__link {
-	border-radius: 0;
-	color: #fff;
-	font-family: Teko, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, sans-serif;
-	font-size: 2.4rem;
-	font-weight: 500;
-	line-height: 1.2;
-	padding: 1.4rem 2.5rem 1.2rem;
-	text-decoration: none;
-}
-
-.entry-content .wp-block-file__button:hover,
-.entry-content .wp-block-button__link:hover {
-	background-color: #F9423A;
-}
-
-/* BUTTON STYLE: OUTLINE */
-
-.entry-content .wp-block-button.is-style-outline .wp-block-button__link {
-	border: .3rem solid #000;
-	color: #000;
-}
-
-.entry-content .wp-block-button.is-style-outline .wp-block-button__link:hover {
-	background: #000;
-	color: #fff;
-}
-
-
-/* Block: Quote --------------------------------------- */
+/* Block: Quote ------------------------------ */
 
 .entry-content blockquote {
 	font-weight: 500;
@@ -2248,82 +2344,19 @@ body.showing-modal .main-menu ul a:hover {
 	font-size: 1.33em;
 }
 
+/* Block: Social ----------------------------- */
 
-/* Block: Gallery --------------------------------------- */
-
-.wp-block-gallery.aligncenter,
-.wp-block-gallery.alignnone,
-.wp-block-gallery.alignwide, 
-.wp-block-gallery.alignfull {
-	padding: 0 1.6rem;
-}
-
-.wp-block-gallery .blocks-gallery-image figcaption, 
-.wp-block-gallery .blocks-gallery-item figcaption {
-	margin: 0;
-	padding-bottom: 1rem;
-}
-
-
-/* Block: Cover Image --------------------------------------- */
-
-.wp-block-cover {
-	min-height: 75vh;
-}
-
-.wp-block-cover .wp-block-cover-text {
-	font-family: Teko, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, sans-serif;
-	font-weight: 500;
-	padding-left: 2.8rem;
-	padding-right: 2.8rem;
-}
-
-
-/* Block: Audio --------------------------------------- */
-
-.wp-block-audio audio {
-	width: 100%;
-}
-
-
-/* Block: File --------------------------------------- */
-
-.entry-content .wp-block-file {
-	align-items: center;
-	background: #ddd;
-	display: flex;
-	font-family: Teko, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, sans-serif;
-	justify-content: space-between;
-	margin: 3rem 0;
-	padding: 1.5rem 2rem;
-}
-
-.entry-content .wp-block-file a:not(.wp-block-file__button) {
+.wp-block-social-links a {
 	color: inherit;
-	font-size: 2.4rem;
-	font-weight: 600;
-	margin-top: .3rem;
-	text-decoration: none;
 }
 
-.entry-content .wp-block-file__button {
-	background: #000;
-	flex-shrink: 0;
-}
-
-/* Page Break --------------------------------------- */
-
-.post-nav-links {
-	background: #ddd;
-	border-radius: .4rem;
-	color: #666;
-	font-weight: 600;
-	padding: 1.5rem 2rem;
+.wp-social-link {
+	margin: 0 .8rem 0 0;
 }
 
 
 /* -------------------------------------------------------------------------------- */
-/*	X.	Site Pagination
+/*	11.	Site Pagination
 /* -------------------------------------------------------------------------------- */
 
 
@@ -2374,6 +2407,10 @@ body:not(.pagination-type-button) #load-more {
 	white-space: nowrap;
 }
 
+#load-more:hover .text {
+	text-decoration: underline;
+}
+
 #load-more .text {
 	white-space: nowrap;
 }
@@ -2413,7 +2450,7 @@ html.js body:not(.pagination-type-links) .link-pagination {
 
 
 /* -------------------------------------------------------------------------------- */
-/*	X.	404 Page
+/*	12.	404 Page
 /* -------------------------------------------------------------------------------- */
 
 
@@ -2441,7 +2478,7 @@ html.js body:not(.pagination-type-links) .link-pagination {
 
 
 /* -------------------------------------------------------------------------------- */
-/*	X.	Site Footer
+/*	13.	Site Footer
 /* -------------------------------------------------------------------------------- */
 
 
@@ -2450,8 +2487,7 @@ html.js body:not(.pagination-type-links) .link-pagination {
 	position: relative;
 }
 
-
-/* Footer Widgets ------------------------------- */
+/* Footer Widgets ---------------------------- */
 
 .footer-widgets-outer-wrapper {
 	padding-bottom: 6rem;
@@ -2470,8 +2506,7 @@ html.js body:not(.pagination-type-links) .link-pagination {
 	margin-top: 0;
 }
 
-
-/* Footer Credits ------------------------------- */
+/* Footer Credits ---------------------------- */
 
 .footer-bottom {
 	letter-spacing: -0.01em;
@@ -2501,7 +2536,6 @@ html.js body:not(.pagination-type-links) .link-pagination {
 	color: #000;
 }
 
-
 /* Footer Menu ------------------------------- */
 
 ul.footer-nav {
@@ -2526,7 +2560,7 @@ ul.footer-nav {
 
 
 /* -------------------------------------------------------------------------------- */
-/*	X.	Widgets
+/*	14.	Widgets
 /* -------------------------------------------------------------------------------- */
 
 
@@ -2566,8 +2600,7 @@ ul.footer-nav {
 	margin-left: 0;
 }
 
-
-/* Base List Widget ------------------------------- */
+/* Base List Widget -------------------------- */
 
 .widget_archive li,
 .widget_categories li,
@@ -2597,8 +2630,7 @@ ul.footer-nav {
 	text-decoration: underline;
 }
 
-
-/* Miyazaki Widget List --------------------------------------- */
+/* Miyazaki Widget List ---------------------- */
 
 .miyazaki-widget-list li {
 	margin-bottom: 2rem;
@@ -2658,7 +2690,7 @@ ul.footer-nav {
 	text-decoration: none;
 }
 
-/* Widget: Calendar ------------------------------- */
+/* Widget: Calendar -------------------------- */
 
 .calendar_wrap {
 	font-size: 2.4rem;
@@ -2666,6 +2698,7 @@ ul.footer-nav {
 
 .calendar_wrap table {
 	font-size: 1em;
+	margin: 0;
 }
 
 .calendar_wrap caption {
@@ -2698,14 +2731,23 @@ ul.footer-nav {
 .calendar_wrap tfoot #prev { text-align: left; }
 .calendar_wrap tfoot #next { text-align: right; }
 
+.wp-calendar-nav {
+	display: flex;
+	font-weight: 500;
+	justify-content: space-between;
+	margin-top: .5em;
+}
 
-/* Widget: Image ------------------------------- */
+.wp-calendar-nav a { text-decoration: none; }
+.wp-calendar-nav a:hover { text-decoration: underline; }
+
+/* Widget: Image ----------------------------- */
 
 .widget_media_image img {
 	width: 100%;
 }
 
-/* Widget: Gallery ------------------------------- */
+/* Widget: Gallery --------------------------- */
 
 .widget_media_gallery .gallery {
 	margin: 0 -.4em -.8em -.4em;
@@ -2717,13 +2759,11 @@ ul.footer-nav {
 	padding: 0 .4em;
 }
 
-
-/* Widget: Nav Menu ------------------------------- */
+/* Widget: Nav Menu -------------------------- */
 
 .widget_nav_menu .widget-content > div > ul {
 	margin-left: 0;
 }
-
 
 /* Widget: RSS ------------------------------- */
 
@@ -2744,8 +2784,7 @@ ul.footer-nav {
 	content: "— ";
 }
 
-
-/* Widget: Search ------------------------------- */
+/* Widget: Search ---------------------------- */
 
 .widget_search label,
 .widget_search img {
@@ -2772,8 +2811,7 @@ ul.footer-nav {
 	flex-shrink: 0;
 }
 
-
-/* Widget: Tag Cloud ------------------------------- */
+/* Widget: Tag Cloud ------------------------- */
 
 .widget_tag_cloud a {
 	font-weight: 600;
@@ -2786,8 +2824,7 @@ ul.footer-nav {
 	color: #F9423A;
 }
 
-
-/* Widget: Text ------------------------------- */
+/* Widget: Text ------------------------------ */
 
 .textwidget {
 	font-family: 'Charis SIL', Georgia, serif;
@@ -2795,14 +2832,13 @@ ul.footer-nav {
 
 
 /* -------------------------------------------------------------------------------- */
-/*	X.	Media Queries
+/*	15.	Media Queries
 /* -------------------------------------------------------------------------------- */
 
 
 @media ( min-width: 400px ) {
 
-
-	/* Entry Content ------------------------------- */
+	/* Entry Content ------------------------- */
 
 	.entry-content .wp-block-pullquote p {
 		font-size: 2.8rem;
@@ -2812,20 +2848,17 @@ ul.footer-nav {
 		font-size: 2.1rem;
 	}
 
-
 }
 
 @media ( min-width: 600px ) {
 
-	
-	/* Document Setup ------------------------------- */
+	/* Document Setup ------------------------ */
 
 	body {
 		font-size: 1.8rem;
 	}
 
-
-	/* Element Base ------------------------------- */
+	/* Element Base -------------------------- */
 
 	h1 { font-size: 9.6rem; }
 	h2 { font-size: 8.2rem; }
@@ -2856,8 +2889,7 @@ ul.footer-nav {
 		margin-left: -1rem;
 	}
 
-
-	/* Helper Classes ------------------------------- */
+	/* Helper Classes ------------------------ */
 
 	/* POST META */
 
@@ -2869,21 +2901,13 @@ ul.footer-nav {
 		width: auto;
 	}
 
-	/* LOADER */
-
-	.loader {
-		border-width: .6rem;
-	}
-
-
-	/* Structure ------------------------------- */
+	/* Structure ----------------------------- */
 	
 	.section-inner {
 		width: calc( 100% - 8rem );
 	}
 
-
-	/* Site Header ------------------------------- */
+	/* Site Header --------------------------- */
 
 	#site-header {
 		padding: 2.5rem 0;
@@ -2893,8 +2917,7 @@ ul.footer-nav {
 		font-size: 9.6rem;
 	}
 
-
-	/* Site Navigation ------------------------------- */
+	/* Site Navigation ----------------------- */
 
 	.mobile-menu-wrapper {
 		padding-top: 11.6rem;
@@ -2919,8 +2942,7 @@ ul.footer-nav {
 		padding: 5rem;
 	}
 
-
-	/* Post: Archive ------------------------------- */
+	/* Post: Archive ------------------------- */
 
 	.posts {
 		display: flex;
@@ -2967,9 +2989,8 @@ ul.footer-nav {
 	.preview-title {
 		margin-top: 2rem;
 	}
-	
 
-	/* Post: Single ------------------------------- */
+	/* Post: Single -------------------------- */
 
 	.entry-header {
 		margin: 5rem 0 8rem;
@@ -3045,7 +3066,6 @@ ul.footer-nav {
 		margin-left: 1.5rem;
 	}
 	
-
 	/* RELATED POSTS */
 
 	.related-posts {
@@ -3057,8 +3077,7 @@ ul.footer-nav {
 		margin-bottom: 2rem;
 	}
 
-
-	/* Comments ------------------------------- */
+	/* Comments ------------------------------ */
 
 	.comment-reply-title {
 		font-size: 4.8rem;
@@ -3163,8 +3182,7 @@ ul.footer-nav {
 		padding: 5rem 0 0;
 	}
 
-
-	/* Entry Content ------------------------------- */
+	/* Entry Content ------------------------- */
 
 	.entry-content h1,
 	.entry-content h2,
@@ -3277,8 +3295,7 @@ ul.footer-nav {
 		padding-right: 4rem;
 	}
 
-
-	/* 404 Page ------------------------------- */
+	/* 404 Page ------------------------------ */
 
 	.error-404-content {
 		margin-top: 7rem;
@@ -3291,7 +3308,7 @@ ul.footer-nav {
 		max-width: 70rem;
 	}
 
-	/* Site Pagination ------------------------------- */
+	/* Site Pagination ----------------------- */
 
 	.pagination-wrapper {
 		padding: 14rem 0 0;
@@ -3305,14 +3322,11 @@ ul.footer-nav {
 		font-size: 6.4rem;
 	}
 
-
 }
-
 
 @media ( min-width: 750px ) {
 
-
-	/* Site Footer ------------------------------- */
+	/* Site Footer --------------------------- */
 
 	#site-footer {
 		margin-top: 10rem;
@@ -3334,7 +3348,6 @@ ul.footer-nav {
 		margin: 0 0 5rem 4rem;
 		width: calc( 50% - 4rem );
 	}
-
 
 	/* FOOTER CREDITS */
 
@@ -3366,21 +3379,17 @@ ul.footer-nav {
 		margin: 0 3rem 0 0;
 	}
 
-
 }
-
 
 @media ( min-width: 1020px ) {
 
-
-	/* Document Setup ------------------------------- */
+	/* Document Setup ------------------------ */
 
 	body {
 		font-size: 2rem;
 	}
 
-
-	/* Site Header ------------------------------- */
+	/* Site Header --------------------------- */
 
 	#site-header {
 		padding: 4.3rem 0 4rem;
@@ -3462,16 +3471,14 @@ ul.footer-nav {
 		border-bottom-color: #fff;
 	}
 
-
-	/* Post: Single ------------------------------- */
+	/* Post: Single -------------------------- */
 
 	.featured-media {
 		position: static;
 		width: 100%;
 	}
 
-
-	/* Entry Content ------------------------------- */
+	/* Entry Content ------------------------- */
 
 	.entry-content .gallery {
 		margin: 5rem -1rem 3rem;
@@ -3497,14 +3504,13 @@ ul.footer-nav {
 		font-size: 3.2rem;
 	}
 
-
-	/* Comments ------------------------------- */
+	/* Comments ------------------------------ */
 
 	.comment-content {
 		font-size: 1.8rem;
 	}
 
-	/* 404 Page ------------------------------- */
+	/* 404 Page ------------------------------ */
 	
 	.error-404-content p {
 		font-size: 4.4rem;
@@ -3513,22 +3519,17 @@ ul.footer-nav {
 		max-width: 87rem;
 	}
 
-
-	/* Site Footer ------------------------------- */
+	/* Site Footer --------------------------- */
 
 	.theme-credits {
 		display: block;
 	}
 
-
 }
-
-
 
 @media ( min-width: 1200px ) {
 
-
-	/* Element Base ------------------------------- */
+	/* Element Base -------------------------- */
 
 	h1 { font-size: 12.4rem; }
 
@@ -3557,8 +3558,7 @@ ul.footer-nav {
 		margin-top: .1rem;
 	}
 
-
-	/* Site Header ------------------------------- */
+	/* Site Header --------------------------- */
 
 	#site-header {
 		font-size: 3.2rem;
@@ -3587,8 +3587,7 @@ ul.footer-nav {
 		font-size: 19.2rem;
 	}
 
-
-	/* Post: Archive ------------------------------- */
+	/* Post: Archive ------------------------- */
 	
 	.posts {
 		width: calc( 100% + 4rem );
@@ -3637,8 +3636,7 @@ ul.footer-nav {
 		width: calc( 100% - 4rem );
 	}
 
-
-	/* Post: Single ------------------------------- */
+	/* Post: Single -------------------------- */
 
 	/* RELATED POSTS */
 
@@ -3654,11 +3652,8 @@ ul.footer-nav {
 		display: none;
 	}
 
+	/* Entry Content ------------------------- */
 
-	/* Entry Content ------------------------------- */
-
-	.aligncenter,
-	.alignnone,
 	.alignwide,
 	.alignfull {
 		margin-bottom: 7rem;
@@ -3680,8 +3675,7 @@ ul.footer-nav {
 		font-size: 4.8rem;
 	}
 
-
-	/* 404 Page ------------------------------- */
+	/* 404 Page ------------------------------ */
 
 	.error-404-content .section-inner {
 		width: calc( 100% - 20rem );
@@ -3693,8 +3687,7 @@ ul.footer-nav {
 		max-width: 94rem;
 	}
 
-	
-	/* Site Footer ------------------------------- */
+	/* Site Footer --------------------------- */
 
 	#site-footer {
 		margin-top: 14rem;
@@ -3715,24 +3708,19 @@ ul.footer-nav {
 
 }
 
-
 @media ( min-width: 1400px ) {
 
-
-	/* Entry Content ------------------------------- */
+	/* Entry Content ------------------------- */
 
 	.entry-content .wp-block-pullquote.alignright p {
 		font-size: 6rem;
 	}
 
-
 }
-
 
 @media ( min-width: 1600px ) {
 
-
-	/* Post: Archive ------------------------------- */
+	/* Post: Archive ------------------------- */
 
 	/* PREVIEWS */
 
@@ -3741,20 +3729,17 @@ ul.footer-nav {
 		width: 25%;
 	}
 
-	/* Post: Single ------------------------------- */
+	/* Post: Single -------------------------- */
 
 	.related-posts .preview:nth-child(4) {
 		display: block;
 	}
 
-
 }
-
 
 @media ( min-width: 1760px ) {
 
-
-	/* Entry Content ------------------------------- */
+	/* Entry Content ------------------------- */
 
 	.alignfull {
 		margin-left: calc( ( 100vw - 168rem ) / -2 );
@@ -3767,9 +3752,7 @@ ul.footer-nav {
 		width: 100rem;
 	}
 
-
 }
-
 
 @media print {
 
@@ -3806,6 +3789,5 @@ ul.footer-nav {
 	.entry-header {
 		margin-top: 0 !important;
 	}
-
 
 }

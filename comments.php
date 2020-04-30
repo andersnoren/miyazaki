@@ -60,18 +60,9 @@ if ( $comments ) : ?>
 
 	</div><!-- comments -->
 
-<?php endif;
+	<?php 
+endif;
 
 if ( comments_open() || pings_open() ) :
-
 	comment_form( 'comment_notes_before=&comment_notes_after=' );
-
-elseif ( $comments ) : ?>
-
-	<div class="comment-respond" id="respond">
-
-		<p class="closed"><?php _e( 'Comments closed', 'miyazaki' ); ?></p>
-
-	</div><!-- #respond -->
-
-<?php endif; ?>
+endif;

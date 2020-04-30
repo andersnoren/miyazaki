@@ -2,7 +2,7 @@
 Contributors: Anlino
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=anders%40andersnoren%2ese&lc=US&item_name=Free%20WordPress%20Themes%20from%20Anders%20Noren&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Requires at least: 4.5
-Tested up to: 5.3.2
+Tested up to: 5.4
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -50,6 +50,26 @@ Images (top left to bottom right):
 
 
 == Changelog ==
+
+Version 2.0.0 (2020-04-08)
+-------------------------
+- Moved editor style files to the `/assets/css/` folder.
+- Moved classes from `functions.php` to the `/inc/classes/` folder.
+- Block editor styles: Fixed targeting of headings.
+- Block editor styles: Fixed button links having the wrong font due to markup changes in core.
+- Updated Firefox text antialiasing to better match styling in Webkit/Blink browsers.
+- Added a hover effect to the load more button.
+- Changed "Tested up to" to 5.4.
+- Restructured block CSS, added base block margins.
+- Added hover effect to post meta links.
+- Updated Button: Style Outline to match the footprint of a regular button.
+- 5.4 Updates: Fixed social block style.
+- 5.4 Updates: Calendar widget styles.
+- General cleanup in `style.css`.
+- Updated `style.css` TOC with the correct numbers of the sections in the CSS.
+- Condensed widget area registration code.
+- Check if widget area has widgets before outputting widget area wrapper element in the footer.
+- Removed the "Comments are closed" message previously displayed when comments are closed on a post.
 
 Version 1.10 (2020-02-15)
 -------------------------
