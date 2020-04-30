@@ -51,6 +51,10 @@ Images (top left to bottom right):
 
 == Changelog ==
 
+Version 2.0.1 (2020-04-30)
+-------------------------
+- CSS: Updated Block Editor font size class targeting to be consistent across media queries.
+
 Version 2.0.0 (2020-04-08)
 -------------------------
 - Moved editor style files to the `/assets/css/` folder.
