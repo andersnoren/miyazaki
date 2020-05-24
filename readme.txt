@@ -53,7 +53,7 @@ Images (top left to bottom right):
 
 Version 2.0.2 (2020-05-XX)
 -------------------------
-- Removed a reference to Chaplin in a comment in `construct.js`.
+- Removed a reference to Chaplin in a comment in `construct.js`. 
 - Fixed incorrect HTML closing element comment in `pagination.php`.
 
 Version 2.0.1 (2020-04-30)
