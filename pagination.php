@@ -74,7 +74,7 @@ if ( $query_args['max_num_pages'] > $query_args['paged'] ) :
 
 			<?php endif; ?>
 
-		</div><!-- #oa-paging -->
+		</div><!-- #pagination -->
 
 	</section><!-- .pagination-wrapper -->
 

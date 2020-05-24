@@ -769,7 +769,7 @@ miyazaki.focusManagement = {
 		} );
 	}
 
-} // chaplin.focusManagement
+} // miyazaki.focusManagement
 
 
 // ======================================================================= Function calls

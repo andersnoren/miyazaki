@@ -51,6 +51,11 @@ Images (top left to bottom right):
 
 == Changelog ==
 
+Version 2.0.2 (2020-05-XX)
+-------------------------
+- Removed a reference to Chaplin in a comment in `construct.js`.
+- Fixed incorrect HTML closing element comment in `pagination.php`.
+
 Version 2.0.1 (2020-04-30)
 -------------------------
 - CSS: Updated Block Editor font size class targeting to be consistent across media queries.
