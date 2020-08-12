@@ -62,7 +62,7 @@ if ( is_single() && ! $disable_related_posts ) :
 
 			<h3 class="related-posts-title title-with-arrow">
 				<span class="text"><?php _e( 'Read Next', 'miyazaki' ); ?></span>
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/arrow-down.svg" />
+				<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icons/arrow-down.svg" />
 			</h3>
 
 			<div class="posts">

@@ -36,7 +36,7 @@ if ( $query_args['max_num_pages'] > $query_args['paged'] ) :
 
 			<button id="load-more" class="title-with-arrow">
 				<span class="text"><?php _e( 'Load More', 'miyazaki' ); ?></span>
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/arrow-down.svg" />
+				<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icons/arrow-down.svg" />
 			</button>
 
 			<p class="out-of-posts"><?php _e( 'Nothing more to load.', 'miyazaki' ); ?></p>

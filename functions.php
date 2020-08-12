@@ -452,7 +452,7 @@ if ( ! function_exists( 'miyazaki_get_fallback_image_url' ) ) :
 			$fallback_image = wp_get_attachment_image_src( $fallback_image_id, 'full' );
 		}
 
-		$fallback_image_url = isset( $fallback_image ) ? esc_url( $fallback_image[0] ) : get_template_directory_uri() . '/assets/images/default-fallback-image.png';
+		$fallback_image_url = isset( $fallback_image ) ? esc_url( $fallback_image[0] ) : esc_url( get_template_directory_uri() ) . '/assets/images/default-fallback-image.png';
 
 		return $fallback_image_url;
 

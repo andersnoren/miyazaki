@@ -2,7 +2,8 @@
 Contributors: Anlino
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=anders%40andersnoren%2ese&lc=US&item_name=Free%20WordPress%20Themes%20from%20Anders%20Noren&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Requires at least: 4.5
-Tested up to: 5.4
+Requires PHP: 5.4
+Tested up to: 5.4.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -51,10 +52,20 @@ Images (top left to bottom right):
 
 == Changelog ==
 
-Version 2.0.2 (2020-05-XX)
+Version 2.0.3 (2020-08-12)
+-------------------------
+- Added escaping of `get_template_directory_uri()`.
+- JS: Fixed compatibility with WordPress 5.5 by replacing `live()` with `on()`.
+- Updated "Tested up to".
+
+Version 2.0.2 (2020-06-05)
 -------------------------
 - Removed a reference to Chaplin in a comment in `construct.js`. 
 - Fixed incorrect HTML closing element comment in `pagination.php`.
+- Fixed navigation toggle being misaglined on mobile in Chrome (thanks, @antomal).
+- Bumped "Tested up to" to 5.4.1.
+- Added "Requires PHP" to readme.txt.
+- Added "Requires PHP" and "Tested up to" to style.css, per new theme requirements.
 
 Version 2.0.1 (2020-04-30)
 -------------------------

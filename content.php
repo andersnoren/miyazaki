@@ -75,7 +75,7 @@
 					<?php if ( $prev_post ) : ?>
 
 						<a class="previous-post" href="<?php echo esc_url( get_permalink( $prev_post->ID ) ); ?>">
-							<span class="arrow"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/arrow-left.svg" /></span>
+							<span class="arrow"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icons/arrow-left.svg" /></span>
 							<span class="title"><?php echo wp_kses_post( get_the_title( $prev_post->ID ) ); ?></span>
 						</a>
 
@@ -84,7 +84,7 @@
 					<?php if ( $next_post ) : ?>
 
 						<a class="next-post" href="<?php echo esc_url( get_permalink( $next_post->ID ) ); ?>">
-							<span class="arrow"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/arrow-right.svg" /></span>
+							<span class="arrow"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icons/arrow-right.svg" /></span>
 							<span class="title"><?php echo wp_kses_post( get_the_title( $next_post->ID ) ); ?></span>
 						</a>
 

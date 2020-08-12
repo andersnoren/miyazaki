@@ -67,7 +67,7 @@ miyazaki.toggles = {
 
 	toggle: function() {
 
-		$( '*[data-toggle-target]' ).live( 'click toggle', function( e ) {
+		$( '*[data-toggle-target]' ).on( 'click toggle', function( e ) {
 
 			var $toggle = $( this );
 

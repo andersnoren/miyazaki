@@ -22,7 +22,7 @@ if ( $comments ) : ?>
 
 				<a class="leave-comment-link title-with-arrow" href="#respond">
 					<span class="text"><?php _e( 'Add Yours', 'miyazaki' ); ?></span>
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/arrow-down.svg" />
+					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icons/arrow-down.svg" />
 				</a>
 
 			<?php endif; ?>
