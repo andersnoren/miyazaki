@@ -77,28 +77,8 @@ if ( ! function_exists( 'miyazaki_load_style' ) ) :
 
 		$dependencies = array();
 
-		/**
-		 * Translators: If there are characters in your language that are not
-		 * supported by Teko, translate this to 'off'. Do not translate
-		 * into your own language.
-		 */
-		$teko = _x( 'on', 'Teko font: on or off', 'miyazaki' );
-
-		if ( 'off' !== $teko ) {
-			$font_families = array();
-
-			$font_families[] = 'Teko:400,500,600,700';
-
-			$query_args = array(
-				'family' => urlencode( implode( '|', $font_families ) ),
-				'subset' => urlencode( 'latin-ext' ),
-			);
-
-			$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
-
-			wp_register_style( 'miyazaki-google-fonts', $fonts_url, array() );
-			$dependencies[] = 'miyazaki-google-fonts';
-		}
+		wp_register_style( 'miyazaki-google-fonts', get_stylesheet_directory_uri() . '/assets/css/fonts.css' );
+		$dependencies[] = 'miyazaki-google-fonts';
 
 		wp_enqueue_style( 'miyazaki-style', get_template_directory_uri() . '/style.css', $dependencies, wp_get_theme( 'miyazaki' )->get( 'Version' ) );
 
@@ -116,7 +96,7 @@ if ( ! function_exists( 'miyazaki_add_editor_styles' ) ) :
 
 		add_editor_style( array(
 			'/assets/css/miyazaki-classic-editor-style.css',
-			'https://fonts.googleapis.com/css?family=Teko:400,500,600,700',
+			get_stylesheet_directory_uri() . '/assets/css/fonts.css'
 		) );
 
 	}
@@ -847,25 +827,8 @@ endif;
 if ( ! function_exists( 'miyazaki_block_editor_styles' ) ) :
 	function miyazaki_block_editor_styles() {
 
-		$dependencies = array();
-
-		/**
-		 * Translators: If there are characters in your language that are not
-		 * supported by the theme fonts, translate this to 'off'. Do not translate
-		 * into your own language.
-		 */
-		$google_fonts = _x( 'on', 'Google Fonts: on or off', 'miyazaki' );
-
-		if ( 'off' !== $google_fonts ) {
-
-			// Register Google Fonts
-			wp_register_style( 'miyazaki-block-editor-styles-font', '//fonts.googleapis.com/css?family=Teko:400,500,600,700' );
-			$dependencies[] = 'miyazaki-block-editor-styles-font';
-
-		}
-
-		wp_enqueue_style( 'miyazaki-block-editor-styles', get_template_directory_uri() . '/assets/css/miyazaki-block-editor-style.css', $dependencies, wp_get_theme( 'miyazaki' )->get( 'Version' ) );
-
+		wp_register_style( 'miyazaki-block-editor-styles-font', get_stylesheet_directory_uri() . '/assets/css/fonts.css' );
+		wp_enqueue_style( 'miyazaki-block-editor-styles', get_template_directory_uri() . '/assets/css/miyazaki-block-editor-style.css', array( 'miyazaki-block-editor-styles-font' ), wp_get_theme( 'miyazaki' )->get( 'Version' ) );
 
 	}
 	add_action( 'enqueue_block_editor_assets', 'miyazaki_block_editor_styles', 1 );

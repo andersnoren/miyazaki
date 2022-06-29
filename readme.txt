@@ -3,7 +3,7 @@ Contributors: Anlino
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=anders%40andersnoren%2ese&lc=US&item_name=Free%20WordPress%20Themes%20from%20Anders%20Noren&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Requires at least: 4.5
 Requires PHP: 5.4
-Tested up to: 5.5.1
+Tested up to: 6.0
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -31,7 +31,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Charis SIL font
 License: SIL Open Font License, 1.1, https://opensource.org/licenses/OFL-1.1
-Source: https://software.sil.org/charis/
+Source: https://fonts.google.com/specimen/Charis+SIL
 
 Teko font
 License: SIL Open Font License, 1.1, https://opensource.org/licenses/OFL-1.1
@@ -51,6 +51,14 @@ Images (top left to bottom right):
 
 
 == Changelog ==
+
+Version 2.1 (2021-06-29)
+-------------------------
+- Switched from the Google Fonts CDN to font files included in the theme folder.
+- Replaced Charis SIL font files with versions from Google Fonts for reduced file size.
+- Fixed alignwide element width on large screens.
+- Updated "Tested up to" to 6.0.
+- Removed www prefix from andersnoren.se URLs.
 
 Version 2.0.4 (2020-09-12)
 -------------------------

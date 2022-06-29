@@ -2,16 +2,16 @@
 
 	Theme Name: Miyazaki
     Text Domain: miyazaki
-	Version: 2.0.4
+	Version: 2.1
 	Description: Miyazaki is a stylish, contrast heavy WordPress theme for blogs, portfolios and magazines. It features a masonry grid on the archive pages, a striking design, Block Editor/Gutenberg support, infinite scroll loading that can be set to load more posts on button click or when the visitor reaches the bottom of the page, threee widget areas in the footer, settings for what post meta to display on archive pages and on single posts, custom logo support, a search overlay that can be accessed from any page, and much more. Demo: http://andersnoren.se/themes/miyazaki/
 	Tags: three-columns, grid-layout, custom-background, custom-logo, editor-style, featured-images, sticky-post, theme-options, threaded-comments, translation-ready, blog, photography, portfolio, footer-widgets, block-styles, wide-blocks
 	Author: Anders Norén
-	Author URI: https://www.andersnoren.se
+	Author URI: https://andersnoren.se
 	License: GNU General Public License version 2.0
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
-	Theme URI: https://www.andersnoren.se/teman/miyazaki-wordpress-theme/
+	Theme URI: https://andersnoren.se/teman/miyazaki-wordpress-theme/
 	Requires PHP: 5.4
-	Tested up to: 5.5.1
+	Tested up to: 6.0
 	
 	All files, unless otherwise stated, are released under the GNU General Public License
 	version 2.0 (http://www.gnu.org/licenses/gpl-2.0.html)
@@ -178,32 +178,6 @@ a {
 *::-webkit-input-placeholder { color: #767676; }
 *:-ms-input-placeholder { color: #767676; }
 *::-moz-placeholder { color: #767676; }
-
-/* Fonts ------------------------------------- */
-
-@font-face {
-	font-family: 'Charis SIL';
-	src: url( ./assets/fonts/CharisSIL-R.woff );
-}
-
-@font-face {
-	font-family: 'Charis SIL';
-	font-style: italic;
-	src: url( ./assets/fonts/CharisSIL-I.woff );
-}
-
-@font-face {
-	font-family: 'Charis SIL';
-	font-weight: bold;
-	src: url( ./assets/fonts/CharisSIL-B.woff );
-}
-
-@font-face {
-	font-family: 'Charis SIL';
-	font-weight: bold;
-	font-style: italic;
-	src: url( ./assets/fonts/CharisSIL-BI.woff );
-}
 
 
 /* -------------------------------------------------------------------------------- */
@@ -484,6 +458,7 @@ h6 + div > .aligncenter, h6 + div > .alignnone, h6 + div > .alignwide, h6 + div 
 }
 
 .alignwide {
+	max-width: 168rem;
 	width: calc( 100vw - 5.6rem );
 }
 
