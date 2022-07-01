@@ -5,7 +5,6 @@
    --------------------------------------------------------------------------------------------- */
 
 if ( ! function_exists( 'miyazaki_setup' ) ) :
-
 	function miyazaki_setup() {
 
 		// Automatic feed
@@ -77,7 +76,7 @@ if ( ! function_exists( 'miyazaki_load_style' ) ) :
 
 		$dependencies = array();
 
-		wp_register_style( 'miyazaki-google-fonts', get_stylesheet_directory_uri() . '/assets/css/fonts.css' );
+		wp_register_style( 'miyazaki-google-fonts', get_theme_file_uri( '/assets/css/fonts.css' ) );
 		$dependencies[] = 'miyazaki-google-fonts';
 
 		wp_enqueue_style( 'miyazaki-style', get_template_directory_uri() . '/style.css', $dependencies, wp_get_theme( 'miyazaki' )->get( 'Version' ) );
@@ -94,10 +93,7 @@ endif;
 if ( ! function_exists( 'miyazaki_add_editor_styles' ) ) :
 	function miyazaki_add_editor_styles() {
 
-		add_editor_style( array(
-			'/assets/css/miyazaki-classic-editor-style.css',
-			get_stylesheet_directory_uri() . '/assets/css/fonts.css'
-		) );
+		add_editor_style( array( '/assets/css/miyazaki-classic-editor-style.css', '/assets/css/fonts.css' ) );
 
 	}
 	add_action( 'init', 'miyazaki_add_editor_styles' );
@@ -827,7 +823,7 @@ endif;
 if ( ! function_exists( 'miyazaki_block_editor_styles' ) ) :
 	function miyazaki_block_editor_styles() {
 
-		wp_register_style( 'miyazaki-block-editor-styles-font', get_stylesheet_directory_uri() . '/assets/css/fonts.css' );
+		wp_register_style( 'miyazaki-block-editor-styles-font', get_theme_file_uri( '/assets/css/fonts.css' ) );
 		wp_enqueue_style( 'miyazaki-block-editor-styles', get_template_directory_uri() . '/assets/css/miyazaki-block-editor-style.css', array( 'miyazaki-block-editor-styles-font' ), wp_get_theme( 'miyazaki' )->get( 'Version' ) );
 
 	}
