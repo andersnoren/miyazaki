@@ -52,6 +52,10 @@ Images (top left to bottom right):
 
 == Changelog ==
 
+Version 2.1.2 (2022-09-19)
+-------------------------
+- Fixed the site header overlapping the WordPress admin bar.
+
 Version 2.1.1 (2022-07-01)
 -------------------------
 - Improved fonts.css enqueue for child themes.
