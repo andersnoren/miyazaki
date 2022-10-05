@@ -168,21 +168,12 @@ miyazaki.coverModals = {
 
 			if ( $activeModal.length ) {
 
-				var modalToggleTarget = $activeModal.data( 'toggle-element' ),
-					$modalToggle = modalToggleTarget ? $( modalToggleTarget ) : '';
-
 				var winWidth = $( window ).width(),
 					untoggleAbove = $activeModal.data( 'untoggle-above' ),
 					untoggleBelow = $activeModal.data( 'untoggle-below' );
 
 				if ( untoggleAbove && ( winWidth > untoggleAbove ) || untoggleBelow && ( winWidth < untoggleBelow ) ) {
-					$activeModal.removeClass( 'active' );
-					$( 'body' ).removeClass( 'showing-modal' );
-					miyazaki.scrollLock.setTo( false );
-
-					if ( $modalToggle ) {
-						$modalToggle.removeClass( 'active' );
-					}
+					miyazaki.coverModals.untoggleModal( $activeModal );
 				}
 			}
 
@@ -199,6 +190,30 @@ miyazaki.coverModals = {
 		} );
 
 	},
+
+	// Untoggle a modal
+	untoggleModal: function( $modal ) {
+
+		$modalToggle = false;
+
+		// If the modal has specified the string (ID or class) used by toggles to target it, untoggle the toggles with that target string.
+		// The modal-target-string must match the string toggles use to target the modal.
+		if ( $modal.data( 'modal-target-string' ) ) {
+			var modalTargetClass = $modal.data( 'modal-target-string' ),
+				$modalToggle = $( '*[data-toggle-target="' + modalTargetClass + '"]' ).first();
+		}
+
+		// If a modal toggle exists, trigger it so all of the toggle options are included
+		if ( $modalToggle && $modalToggle.length ) {
+			$modalToggle.trigger( 'click' );
+
+		// If one doesn't exist, just hide the modal
+		} else {
+			$modal.removeClass( 'active' );
+			$( 'body' ).removeClass( 'showing-modal' );
+		}
+
+	}
 
 } // miyazaki.coverModals
 
@@ -404,30 +419,64 @@ miyazaki.smoothScroll = {
 
 	init: function() {
 
-		// Smooth scroll to anchor links
-		$( 'a[href*="#"]' )
-		// Remove links that don't actually link to anything
-		.not( '[href="#"]' )
-		.not( '[href="#0"]' )
-		.not( '.skip-link' )
-		.click( function( event ) {
-			// On-page links
-			if ( location.pathname.replace( /^\//, '' ) == this.pathname.replace( /^\//, '' ) && location.hostname == this.hostname ) {
-				// Figure out element to scroll to
-				var target = $( this.hash );
-				target = target.length ? target : $( '[name=' + this.hash.slice( 1 ) + ']' );
-				// Does a scroll target exist?
-				if ( target.length ) {
-					// Only prevent default if animation is actually gonna happen
-					event.preventDefault();
-					$( 'html, body' ).animate({
-						scrollTop: target.offset().top
-					}, 1000 );
-				}
+		// Scroll to on-page elements by hash.
+		$( 'a[href*="#"]' ).not( '[href="#"]' ).not( '[href="#0"]' ).not( '.disable-hash-scroll' ).on( 'click', function( e ) {
+			if ( location.pathname.replace(/^\//, '' ) == this.pathname.replace(/^\//, '' ) && location.hostname == this.hostname ) {
+				$target = $( this.hash ).length ? $( this.hash ) : $( '[name=' + this.hash.slice(1) + ']' );
+				miyazaki.smoothScroll.scrollToTarget( $target, $( this ) );
+				e.preventDefault();
 			}
-		});
+		} );
+
+		// Scroll to elements specified with a data attribute.
+		$( document ).on( 'click', '*[data-scroll-to]', function( e ) {
+			var $target = $( $( this ).data( 'scroll-to' ) );
+			miyazaki.smoothScroll.scrollToTarget( $target, $( this ) );
+			e.preventDefault();
+		} );
 
 	},
+
+	// Scroll to target.
+	scrollToTarget: function( $target, $clickElem ) {
+
+		if ( $target.length ) {
+
+			var additionalOffset 	= 0,
+				timeOutTime			= 0;
+
+			// Close any parent modal before calculating offset and scrolling.
+			// Also, set a timeout, to make sure elements have the correct offset before we scroll.
+			if ( $clickElem && $clickElem.closest( '.cover-modal' ) ) {
+				miyazaki.coverModals.untoggleModal( $clickElem.closest( '.cover-modal' ) );
+				timeOutTime = 5;
+			}
+
+			setTimeout( function() {
+
+				// Determine offset.
+				var scrollOffset = $target.offset().top + additionalOffset;
+
+				// Scroll to position.
+				miyazaki.smoothScroll.scrollToPosition( scrollOffset );
+
+			}, timeOutTime );
+
+		}
+
+	},
+
+	// Scroll to position.
+	scrollToPosition: function( scrollOffset ) {
+
+		// Animate.
+		$( 'html, body' ).animate( {
+			scrollTop: scrollOffset,
+		}, 500, function() {
+			$( window ).trigger( 'did-interval-scroll' );
+		} );
+
+	}
 
 } // miyazaki.smoothScroll
 

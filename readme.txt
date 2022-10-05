@@ -52,6 +52,10 @@ Images (top left to bottom right):
 
 == Changelog ==
 
+Version 2.2 (2022-10-05)
+-------------------------
+- JS: Updated the smoothScroll to make the mobile menu support anchor links on the same page.
+
 Version 2.1.2 (2022-09-19)
 -------------------------
 - Fixed the site header overlapping the WordPress admin bar.

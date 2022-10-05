@@ -117,7 +117,7 @@
 
 		</header><!-- #site-header -->
 
-		<div class="mobile-menu-wrapper cover-modal" data-untoggle-above="1020" data-toggle-element=".nav-toggle">
+		<div class="mobile-menu-wrapper cover-modal" data-untoggle-above="1020" data-modal-target-string=".mobile-menu-wrapper">
 
 			<div class="mobile-menu-container section-inner">
 
@@ -156,7 +156,7 @@
 
 		<?php if ( ! $disable_search ) : ?>
 
-			<div class="search-overlay cover-modal" data-untoggle-below="1020" data-toggle-element=".search-toggle">
+			<div class="search-overlay cover-modal" data-untoggle-below="1020" data-modal-target-string=".search-overlay">
 
 				<div class="section-inner overlay-search-form search-overlay-form-wrapper">
 					<?php echo get_search_form(); ?>
