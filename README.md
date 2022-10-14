@@ -2,7 +2,7 @@
 
 Miyazaki is a stylish, contrast heavy WordPress theme for blogs, portfolios and magazines. It features a masonry grid on the archive pages, a striking design, Block Editor/Gutenberg support, infinite scroll loading that can be set to load more posts on button click or when the visitor reaches the bottom of the page, threee widget areas in the footer, settings for what post meta to display on archive pages and on single posts, custom logo support, a search overlay that can be accessed from any page, and much more.
 
-![Miyazaki](https://github.com/andersnoren/miyazaki/blob/main/screenshot.png)
+![Miyazaki](https://github.com/andersnoren/miyazaki/blob/master/screenshot.jpg)
 
 You can download the latest stable release of Miyazaki [from WordPress.org](https://wordpress.org/themes/miyazaki/).
 
